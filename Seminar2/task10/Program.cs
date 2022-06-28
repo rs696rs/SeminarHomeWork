@@ -21,5 +21,7 @@ Console.WriteLine("Вторая цифра " + SecD);
 
 
 
+
+
     
    
