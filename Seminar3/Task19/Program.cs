@@ -15,4 +15,4 @@ else Console.WriteLine("Число не является палиндромом"
 Console.Write("Введите 5 значное число: ");
 int s = Convert.ToInt32(Console.ReadLine());
 
-Palind(s);
+Palind(s);  
