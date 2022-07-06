@@ -1,17 +1,19 @@
-﻿// See https://aka.ms/new-console-template for more information
-int[] CreateRandomArray(int size, int min, int max)
+﻿// Задайте массив вещественных чисел. 
+// Найдите разницу между максимальным и минимальным элементов массива.
+
+double[] CreateRandomArray(int size, int min, int max)
 
 {
-    int[] array = new int[size];
+    double[] array = new double[size];
 
     for (int i = 0; i < size; i++)
     {
-        array[i] = new Random().Next(min, max + 1);
+        array[i] = new Random().Next(min, max + 1) + new Random().NextDouble();
     }
     return array;
 }
 
-void ShowArray(int[] array)
+void ShowArray(double[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -20,53 +22,27 @@ void ShowArray(int[] array)
     Console.WriteLine();
 }
 
-/*int FindPositivSum(int[] array)
+double MaxNumber(double[] array)
 {
-    int sum=0;
+    double max = array[0];
     for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i]>0) sum+=array[i];
-    }
-    return sum;
-}*/
-
-void SwapNegativToPositivElement(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i]<0) 
-        {
-            array[i]=array[i]*-1;
-        }
-        Console.Write(array[i]+" ");
-    }
-    
+        if (array[i] > max) max = array[i];
+    return max;
 }
 
-void SwapPositivToNegativElement(int[] array)
+double MinNamber(double[] array)
 {
+    double min = array[0];
     for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i]>0) 
-        {
-            array[i]=array[i]*-1;
-        }
-        Console.Write(array[i]+" ");
-    }
-    
+        if (array[i] < min) min = array[i];
+
+    return min;
 }
 
-int EvenNambers(int[] array)
+void DifferenceElements(double a, double b)
 {
-    int count=0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i]%2==0) 
-        {
-            count=count+1;
-        }
-    }
-    return count;
+    double dif = a-b;
+    Console.WriteLine("Разница между максимальным и минимальным элементом массива: " + dif);
 }
 
 Console.Write("Укажите зармер массива: ");
@@ -78,12 +54,13 @@ int min = Convert.ToInt32(Console.ReadLine());
 Console.Write("Укажите диапазот массива до: ");
 int max = Convert.ToInt32(Console.ReadLine());
 
-int[] myArrya = CreateRandomArray(size,min,max);
+double[] myArrya = CreateRandomArray(size, min, max);
 
 ShowArray(myArrya);
 
-Console.WriteLine("Количество четных элементов в массиве: "+EvenNambers(myArrya));
+double Max = MaxNumber(myArrya);
+double Min = MinNamber(myArrya);
 
-// SwapNegativToPositivElement(myArrya);
+Console.WriteLine(); // разделитель
 
-//SwapPositivToNegativElement(myArrya);
+DifferenceElements(Max,Min);
