@@ -1,4 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿//  Задайте массив, заполненный случайными числами. 
+// Найдите сумму элементов, стоящих на нечётных позициях.
+
+
 int[] CreateRandomArray(int size, int min, int max)
 
 {
@@ -20,53 +23,15 @@ void ShowArray(int[] array)
     Console.WriteLine();
 }
 
-/*int FindPositivSum(int[] array)
+
+int UnfairPosition(int[] array)
 {
     int sum=0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (array[i]>0) sum+=array[i];
+        if (i%2>0) sum+=array[i];
     }
     return sum;
-}*/
-
-void SwapNegativToPositivElement(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i]<0) 
-        {
-            array[i]=array[i]*-1;
-        }
-        Console.Write(array[i]+" ");
-    }
-    
-}
-
-void SwapPositivToNegativElement(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i]>0) 
-        {
-            array[i]=array[i]*-1;
-        }
-        Console.Write(array[i]+" ");
-    }
-    
-}
-
-int EvenNambers(int[] array)
-{
-    int count=0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i]%2==0) 
-        {
-            count=count+1;
-        }
-    }
-    return count;
 }
 
 Console.Write("Укажите зармер массива: ");
@@ -82,8 +47,4 @@ int[] myArrya = CreateRandomArray(size,min,max);
 
 ShowArray(myArrya);
 
-Console.WriteLine("Количество четных элементов в массиве: "+EvenNambers(myArrya));
-
-// SwapNegativToPositivElement(myArrya);
-
-//SwapPositivToNegativElement(myArrya);
+Console.WriteLine("Cумма элементов, стоящих на нечётных позициях: "+UnfairPosition(myArrya));
