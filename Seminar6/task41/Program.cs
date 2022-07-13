@@ -1,42 +1,34 @@
-﻿// Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+﻿// Пользователь вводит с клавиатуры M чисел. 
+// Посчитайте, сколько чисел больше 0 ввёл пользователь.
 
-/*int FindZero(int[] numb)
+int[] CreateArrayInputNumber(int size)
 {
-    int result = 0;
-    for (int i = 0; i < numb.Length; i = i + 2)
-    {
-        if (numb[i] > 0) result = result + 1;
-    }
-    return result;
-}
-*/
-int[] Converting(string text)
-{
-    int[] array = new int[text.Length];
-    for (int i = 0; i < text.Length; i++)
-    {
-        array[i] = text[i];
+    int[] array = new int[size];
 
+    for (int i = 0; i < size; i++)
+    {
+        Console.Write("Введите " + (i + 1) + " число: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
     }
+
     return array;
 }
 
-void ShowArray(int[] numb)
+int FinedNegativeNumber(int[] array)
 {
-    for (int i = 0; i < numb.Length; i++)
+    int count = 0;
+    
+    for (int i = 0; i < array.Length; i++)
     {
-        Console.Write(numb[i] + " ");
+        if (array[i] < 0) count += 1;
     }
-    Console.WriteLine();
+
+    return count;
 }
 
-Console.Write("Введите числа (через пробел): ");
-//string m = Console.ReadLine();
-string number = Console.ReadLine();
+Console.Write("Введите количество числел: ");
+int size = Convert.ToInt32(Console.ReadLine());
 
-int[] myArray = Converting(number);
+int[] myArray = CreateArrayInputNumber(size);
 
-ShowArray(myArray);
-
-//Console.WriteLine("Количество чисел больше 0: "+FindZero(myArray));
-
+Console.WriteLine("Введено чисел меньше 0: " + FinedNegativeNumber(myArray));
