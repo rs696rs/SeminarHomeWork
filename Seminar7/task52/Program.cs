@@ -5,6 +5,7 @@
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
+
 int[,] CreatRandom2dArray(int rows, int columns, int minValue, int maxValue)
 {
     int[,] newArray = new int[rows, columns];
@@ -23,37 +24,45 @@ void Show2dArray(int[,] array)
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
-            Console.Write(array[i,j] + " ");
+            Console.Write(array[i, j] + " ");
 
-        Console.WriteLine();    
+        Console.WriteLine();
     }
 }
 
-int [,] Srednee(int[,]array, int columns)
+void AverageArithmeticColumns(int[,] array, int rows)
 {
-    int srednee = 0;
+    double sum = 0;
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
-        srednee= array[i]/columns;
+            sum += (array[j, i]);
+        sum = sum / rows;
+        sum = Math.Round(sum, 2);
+        Console.WriteLine("Среднее арифметическое " + (i + 1) + " столбца: " + sum + " ");
+        sum = 0;
     }
+
 }
 
 Console.Write("Введите количество строк: ");
 int rows = Convert.ToInt32(Console.ReadLine());
-
 Console.Write("Введите количество столбцов: ");
 int columns = Convert.ToInt32(Console.ReadLine());
-
 Console.Write("Введите число начала массива: ");
 int minValue = Convert.ToInt32(Console.ReadLine());
-
 Console.Write("Введите число конца массива: ");
 int maxValue = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("");
 
 
-int[,] my2dArray = CreatRandom2dArray(rows,columns,minValue,maxValue);
+int[,] my2dArray = CreatRandom2dArray(rows, columns, minValue, maxValue);
 
 Show2dArray(my2dArray);
+
+Console.WriteLine("");
+
+AverageArithmeticColumns(my2dArray, rows);
+
+
