@@ -29,6 +29,16 @@ void Show2dArray(int[,] array)
     }
 }
 
+int [,] Srednee(int[,]array, int columns)
+{
+    int srednee = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        srednee= array[i]/columns;
+    }
+}
+
 Console.Write("Введите количество строк: ");
 int rows = Convert.ToInt32(Console.ReadLine());
 
