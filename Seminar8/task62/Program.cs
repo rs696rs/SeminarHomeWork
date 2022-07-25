@@ -6,7 +6,7 @@
 10 9 8 7
 */
 
-int[,] CreatRandom2dArray(int rows, int columns,int minValue, int maxValue)
+int[,] CreatRandom2dArray(int rows, int columns, int minValue, int maxValue)
 {
     int[,] newArray = new int[rows, columns];
     for (int i = 0; i < rows; i++)
@@ -31,24 +31,24 @@ void Show2dArray(int[,] array)
 
 int[,] SpiralMatrix(int[,] array)
 {
-int temp = 1;
-int i = 0;
-int j = 0;
+    int temp = 1;
+    int i = 0;
+    int j = 0;
 
-while (temp <= array.GetLength(0) * array.GetLength(1))
-{
-    array[i, j] = temp;
-    temp++;
-    if (i <= j + 1 && i + j < array.GetLength(1) - 1)
-        j++;
-    else if (i < j && i + j >= array.GetLength(0) - 1)
-        i++;
-    else if (i >= j && i + j > array.GetLength(1) - 1)
-        j--;
-    else
-        i--;
-}
-return array;
+    while (temp <= array.GetLength(0) * array.GetLength(1))
+    {
+        array[i, j] = temp;
+        temp++;
+        if (i <= j + 1 && i + j < array.GetLength(1) - 1)
+            j++;
+        else if (i < j && i + j >= array.GetLength(0) - 1)
+            i++;
+        else if (i >= j && i + j > array.GetLength(1) - 1)
+            j--;
+        else
+            i--;
+    }
+    return array;
 }
 
 Console.Write("Введите количество строк: ");
@@ -65,12 +65,12 @@ int maxValue = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("");
 
-int[,] my2dArray = CreatRandom2dArray(rows, columns,minValue, maxValue);
+int[,] my2dArray = CreatRandom2dArray(rows, columns, minValue, maxValue);
 
 Show2dArray(my2dArray);
 
 Console.WriteLine(" ");
 
-int[,] Spiral2dArray=SpiralMatrix(my2dArray);
+int[,] Spiral2dArray = SpiralMatrix(my2dArray);
 
 Show2dArray(Spiral2dArray);
