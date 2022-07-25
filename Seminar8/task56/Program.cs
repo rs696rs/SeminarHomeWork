@@ -80,7 +80,7 @@ Show2dArray(my2dArray);
 
 Console.WriteLine("");
 
-MinimumSumRows(my2dArray, columns);
+MinimumSumRows(my2dArray, columns); 
 
 
 
