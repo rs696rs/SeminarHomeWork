@@ -27,4 +27,4 @@ string[] words = { "Доб", "рый", "ве", "чер", "Па", "вел,", "б�
 
 string[] NewWords = CombiningWords(words);
 
-PrintWords(NewWords);
+PrintWords(NewWords); 
