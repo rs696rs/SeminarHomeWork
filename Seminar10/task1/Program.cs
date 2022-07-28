@@ -18,7 +18,7 @@ void FindVowelLetter(string[] words)
 string[] words = { "qwe", "wer", "ert", "rty", "tyu", "ouy", "ger", "min", "yes" };
 
 
-FindVowelLetter(words);
+FindVowelLetter(words); 
 
 
 
